@@ -1,6 +1,16 @@
-// Reverses a string
-function reverse(string) {
-  return Array.from(string).reverse().join("");
+// Add 'reverse' method to all strings
+String.prototype.reverse = function() {
+  return Array.from(this).reverse().join("");
+}
+
+// Add 'blank' method to all strings
+String.prototype.blank = function() {
+  return !!this.match(/^\s+$/);
+}
+
+// Add 'last' method to all arrays
+Array.prototype.last = function() {
+  return this.slice(-1);
 }
 
 // Returns the username and domain of an email address
@@ -23,7 +33,7 @@ function Phrase(content) {
 
   // Returns true if the phrase is a palindrome, false otherwise
   this.palindrome = function() {
-    return this.processedContent() === reverse(this.processedContent());
+    return this.processedContent() === this.processedContent().reverse();
   }
 
   // Returns all-caps version of the content
