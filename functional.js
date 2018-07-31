@@ -59,3 +59,46 @@ function functionalDoubles(elements) {
   return elements.filter(element => element.split(/\s+/).length === 2);
 }
 console.log(functionalDoubles(states));
+
+// Reduce
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// sum: Imperative solution
+function imperativeSum(elements) {
+  let total = 0;
+  elements.forEach(n => total += n);
+  return total;
+}
+console.log(imperativeSum(numbers));
+
+// sum: Functional solution
+function functionalSum(elements) {
+  return elements.reduce((total, n) => { return total += n; });
+}
+console.log(functionalSum(numbers));
+
+// lengths: Imperative solution
+function imperativeLengths(elements) {
+  let lengths = {};
+  elements.forEach(element => lengths[element] = element.length);
+  return lengths;
+}
+console.log(imperativeLengths(states));
+
+// lengths: Functional solution
+function functionalLengths(elements) {
+  return elements.reduce((lengths, element) => {
+    lengths[element] = element.length;
+    return lengths;
+  }, {});
+}
+console.log(functionalLengths(states));
+
+// Returns the product of multiplication of all the elements of the given array
+function multiply(elements) {
+  return elements.reduce((product, element) => {
+    product *= element;
+    return product;
+  }, 1);
+}
+console.log(multiply(numbers));
