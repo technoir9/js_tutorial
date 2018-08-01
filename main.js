@@ -1,4 +1,4 @@
-let Phrase = require("mhartl-palindrome");
+let Phrase = require("technoir9-palindrome");
 
 function palindromeTester(event) {
   event.preventDefault(); // Prevent the submission to the server

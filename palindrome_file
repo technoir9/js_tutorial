@@ -1,0 +1,15 @@
+#!/usr/bin/node
+
+let fs = require("fs");
+let Phrase = require("technoir9-palindrome")
+
+let text = fs.readFileSync("phrases.txt", "utf-8");
+let palindromes = "";
+text.split("\n").forEach(function(line) {
+  let phrase = new Phrase(line);
+  if (phrase.palindrome()) {
+    console.log("palindrome detected:", line);
+    palindromes += line + "\n";
+  }
+});
+fs.writeFileSync("palindromes.txt", palindromes);
